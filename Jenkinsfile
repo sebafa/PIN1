@@ -14,13 +14,13 @@ pipeline {
             }
         }
 
-        stage('Run tests') {
+     stage('Run tests') {
             steps {
                 sh "docker run tpi1 npm test"
             }
         }
 
-        stage('Push to Docker Hub') {
+      stage('Push to Docker Hub') {
             steps {
                 script {
                     withCredentials([usernamePassword(credentialsId: 'DockerHubToken', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
