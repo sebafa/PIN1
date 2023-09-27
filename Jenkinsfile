@@ -9,7 +9,7 @@ pipeline {
         stage('Building image') {
             steps {
                 sh '''
-                docker build -t sebafarina83/tpi1 .
+                docker build -t sfarina83/tpi1 .
                 '''
             }
         }
@@ -25,7 +25,7 @@ pipeline {
                 script {
                     withCredentials([usernamePassword(credentialsId: 'DockerHubToken', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
                         sh "docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD"
-                        sh "docker push sebafarina83/tpi1"
+                        sh "docker push sfarina83/tpi1"
                     }
                 }
             }
