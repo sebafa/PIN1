@@ -16,7 +16,7 @@ pipeline {
 
         stage('Run tests') {
             steps {
-                sh "docker run tpi1 npm test"
+                sh "docker run sfarina83/tpi1 npm test"
             }
         }
 
